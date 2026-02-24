@@ -1,7 +1,7 @@
 import re
 
-file = "teste_Altura.gcode"
-output_file = "teste_Altura_XYSV.txt"
+file = "base_com_piramide.gcode"
+output_file = "base_com_piramide_XYSV.txt"
 
 # Expressões regulares
 regex_x = re.compile(r"X([-+]?[0-9]*\.?[0-9]+)")

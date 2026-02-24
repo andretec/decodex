@@ -2,11 +2,11 @@
 # PARAMETROS DE CONFIGURACAO
 # ==========================
 
-file_output = "grade_centralizada_XYS.txt"
-escala_X = 100        # tamanho total em X
-escala_Y = 100        # tamanho total em Y
-dist_div = 10         # distancia entre linhas da grade
-tam_div = 5           # mantido por compatibilidade
+file_output = "grade_centralizada_150x150_XYS.txt"
+escala_X = 450        # tamanho total em X
+escala_Y = 450        # tamanho total em Y
+dist_div = 150         # distancia entre linhas da grade
+tam_div = 150         # mantido por compatibilidade
 centralizada = True   # True = origem no centro | False = origem no canto
 
 # ==========================

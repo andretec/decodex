@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 
-arquivo = "morcego-1_XYS.txt"
+arquivo = "grade_centralizada_150x150_XYS.txt"
 
 # =========================
 # Leitura do arquivo
