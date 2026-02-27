@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 
-arquivo = "grade_centralizada_150x150_XYS.txt"
+arquivo = "base_USP_dodecaedro_LH_15um_LW_04_lines_04um_H.txt"
 
 # =========================
 # Leitura do arquivo
@@ -13,16 +13,25 @@ with open(arquivo, "r") as f:
     for linha in f:
         linha = linha.strip()
 
+        # Identificação da camada
         if linha.startswith("LAYER-"):
             camada_atual = int(linha.split("-")[1])
             camadas[camada_atual] = []
             continue
 
+        # Ignorar cabeçalho ou linhas vazias
         if linha.startswith("X") or not linha:
             continue
 
-        x, y, shutter = linha.split()
-        camadas[camada_atual].append((float(x), float(y), int(shutter)))
+        partes = linha.split()
+
+        # Garantir que existem pelo menos 3 colunas
+        if len(partes) >= 3:
+            x = float(partes[0])
+            y = float(partes[1])
+            shutter = int(partes[2])
+
+            camadas[camada_atual].append((x, y, shutter))
 
 total_camadas = max(camadas.keys())
 
@@ -42,7 +51,11 @@ def plot_layer(layer):
         else:
             cor = "green"
 
-        ax.plot([x0, x1], [y0, y1], marker='o', linestyle='solid', markersize=5)
+        ax.plot([x0, x1], [y0, y1],
+                marker='o',
+                linestyle='solid',
+                markersize=5,
+                color=cor)
 
     ax.set_title(f"Camada {layer}")
     ax.set_aspect("equal", adjustable="box")
