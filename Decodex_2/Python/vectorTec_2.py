@@ -1,7 +1,10 @@
 import re
+import os
 
-file = "base_com_piramide.gcode"
-output_file = "base_com_piramide_XYSV.txt"
+file = "blocos_2__LH_25um_LW_1um_lines_1um_90.gcode"
+
+# Gera automaticamente o nome do arquivo de saída
+output_file = os.path.splitext(file)[0] + ".txt"
 
 # Expressões regulares
 regex_x = re.compile(r"X([-+]?[0-9]*\.?[0-9]+)")
